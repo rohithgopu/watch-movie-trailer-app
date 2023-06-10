@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import axios from "axios";
+
+import * as Constants from "./constants/Constants";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	useEffect(() => {
+	  fetchMovies()
+	}, [])
+
+	const fetchMovies = async () => {
+		const data = await axios.get(`${Constants.MOVIE_API_URL}/discover/movie`, {
+			params: {
+				api_key: process.env.REACT_APP_MOVIE_API_KEY
+			}
+		})
+
+		console.log("data", data.data);
+	}
+
+	return (
+		<div className="App">
+			<h1>Hello Users !!</h1>
+		</div>
+	);
 }
 
 export default App;
