@@ -8,6 +8,7 @@ import "./App.css";
 function App() {
 
 	const [movies, setMovies] = useState([]);
+	const [selectedMovie, setSelectedMovie] = useState({});
 	const [searchKey, setSearchKey] = useState("");
 
 	useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
 			},
 		});
 
+		setSelectedMovie(results[0]);
 		setMovies(results);
 	};
 
@@ -46,13 +48,22 @@ function App() {
 		<div className="App">
 			<header className="header">
 				<div className="header-content max-center">
-					<h1>Watch Movie Trailer</h1>
+					<span>Movie Trailer App</span>
 					<form onSubmit={searchMovies}>
 						<input type="text" onChange={(e) => setSearchKey(e.target.value)} />
 						<button type="submit">Search</button>
 					</form>
 				</div>
 			</header>
+
+			<div className="hero" style={{backgroundImage: `url('${Constants.MOVIE_BACKGROUND_PATH}/${selectedMovie.backdrop_path}')`}}>
+				<div className="hero-content max-center">
+					<button className="button">Play Trailer</button>
+					<h1 className="hero-title">{selectedMovie.title}</h1>
+					{selectedMovie.overview ? <p className="hero-overview">{selectedMovie.overview}</p> : null}
+				</div>
+			</div>
+
 			<div className="container max-center">{renderMovies()}</div>
 		</div>
 	);
