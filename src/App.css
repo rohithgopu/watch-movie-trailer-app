@@ -28,6 +28,10 @@ body {
   width: 100%;
 }
 
+.movie-card {
+  cursor: pointer;
+}
+
 .movie-placeholder {
   min-height: 359px;
   background-color: white;
@@ -38,6 +42,7 @@ body {
 }
 
 .hero {
+  position: relative;
   min-height: 500px;
   background-position: top center;
   background-size: cover;
@@ -62,4 +67,19 @@ body {
   border: 1px solid white;
   padding: 10px 15px;
   cursor: pointer;
+}
+
+.button-close {
+  position: absolute;
+  z-index: 10;
+  bottom: 30px;
+  left: 30px;
+}
+
+.youtube-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
