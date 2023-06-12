@@ -44,14 +44,16 @@ function App() {
 
 	return (
 		<div className="App">
-			<header>
-				<h1>Movie Trailer App</h1>
-				<form onSubmit={searchMovies}>
-					<input type="text" onChange={(e) => setSearchKey(e.target.value)} />
-					<button type="submit">Search</button>
-				</form>
+			<header className="header">
+				<div className="header-content max-center">
+					<h1>Watch Movie Trailer</h1>
+					<form onSubmit={searchMovies}>
+						<input type="text" onChange={(e) => setSearchKey(e.target.value)} />
+						<button type="submit">Search</button>
+					</form>
+				</div>
 			</header>
-			<div className="container">{renderMovies()}</div>
+			<div className="container max-center">{renderMovies()}</div>
 		</div>
 	);
 }

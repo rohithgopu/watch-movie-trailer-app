@@ -7,7 +7,7 @@ function Movie({ movie }) {
 		<div className="movie-card">
 			{movie.poster_path ? (
 				<img className="movie-cover" src={`${MOVIE_POSTER_PATH}/${movie.poster_path}`} alt="Movie Poster" />
-			) : null}
+			) : <div className="movie-placeholder">No Image Found</div>}
 			<h5>{movie.title}</h5>
 		</div>
 	);
